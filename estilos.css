@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+header {
+  background-color: #004080;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+nav {
+  background-color: #e0e0e0;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #004080;
+  font-weight: bold;
+}
+.contenido {
+  padding: 30px;
+  text-align: center;
+}
+.carrera {
+  margin-top: 20px;
+}
+.carrera a {
+  display: block;
+  margin: 10px;
+  font-size: 18px;
+  color: #0066cc;
+  text-decoration: none;
+}
+h1 {
+  color: #004080;
+}
