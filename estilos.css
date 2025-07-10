@@ -1,38 +1,69 @@
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 header {
-  background-color: #004080;
+  background-color: #002855;
   color: white;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
 }
 nav {
-  background-color: #e0e0e0;
-  padding: 10px;
+  background-color: #004080;
+  padding: 10px 0;
   text-align: center;
 }
 nav a {
   margin: 0 15px;
+  color: white;
   text-decoration: none;
-  color: #004080;
   font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
 }
 .contenido {
   padding: 30px;
-  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-.carrera {
-  margin-top: 20px;
+h1, h2, h3 {
+  color: #002855;
 }
-.carrera a {
-  display: block;
-  margin: 10px;
-  font-size: 18px;
-  color: #0066cc;
-  text-decoration: none;
-}
-h1 {
+a {
   color: #004080;
+}
+form input, form textarea, form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+form button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #002855;
+}
+
+header {
+  background-color: #002855;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  background-image: url('../img/logo.png');
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 50px 50px;
+  padding-left: 80px;
 }
