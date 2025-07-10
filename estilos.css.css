@@ -55,3 +55,15 @@ form button {
 form button:hover {
   background-color: #002855;
 }
+
+header {
+  background-color: #002855;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  background-image: url('../img/logo.png');
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 50px 50px;
+  padding-left: 80px;
+}
