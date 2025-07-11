@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias | UTERA</title>
+  <title>Contacto | UTERA</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -23,29 +23,42 @@
         <li><a href="software.html">Desarrollo de Software</a></li>
         <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
         <li><a href="renovables.html">Energías Renovables</a></li>
-        <li><a href="noticias.html" class="activo">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html" class="activo">Contacto</a></li>
         <li><a href="acerca.html">Acerca de</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h2 class="fade delay1">Noticias recientes</h2>
-    <section class="noticia fade delay2">
-      <h3>UTERA inaugura nuevo laboratorio de energías limpias</h3>
-      <p>En junio de 2025, UTERA abrió un moderno laboratorio equipado con paneles solares, aerogeneradores y simuladores de red inteligente.</p>
-    </section>
+    <h2 class="fade delay1">Contáctanos</h2>
+    <p class="fade delay2">
+      ¿Tienes preguntas, comentarios o necesitas más información? Escríbenos o visítanos en nuestras instalaciones.
+    </p>
 
-    <section class="noticia fade delay3">
-      <h3>Estudiantes de Ciberseguridad participan en hackatón internacional</h3>
-      <p>El equipo UTERA-Cyber ganó el segundo lugar en el reto de ciberdefensa organizado por la ONU, destacando por su estrategia innovadora.</p>
-    </section>
+    <div class="fade delay3">
+      <h3>Dirección</h3>
+      <p>Av. Universitaria 456, Parque Tecnológico, Monterrey, NL, México</p>
 
-    <section class="noticia fade delay4">
-      <h3>Nuevo programa de movilidad internacional</h3>
-      <p>Se firmó convenio con universidades de Canadá, Alemania y Chile para intercambio académico en áreas de desarrollo de software y medio ambiente.</p>
-    </section>
+      <h3>Teléfono</h3>
+      <p>+52 (81) 1234-5678</p>
+
+      <h3>Correo electrónico</h3>
+      <p>informes@utera.edu.mx</p>
+    </div>
+
+    <form class="formulario fade delay4" action="#" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
   </main>
 </body>
 </html>
