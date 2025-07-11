@@ -128,3 +128,21 @@ main {
 .delay3 {
   animation-delay: 0.9s;
 }
+.plan-academico table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  background-color: #fff;
+}
+
+.plan-academico th,
+.plan-academico td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+.plan-academico th {
+  background-color: #004080;
+  color: white;
+}
