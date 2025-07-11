@@ -29,6 +29,53 @@
       </ul>
     </nav>
   </header>
+<section class="acceso-unidades fade delay7">
+  <h3>Acceso a contenido por unidad</h3>
+  <p>Ingresa tu código de alumno para acceder al contenido de tu unidad activa.</p>
+
+  <form id="formAcceso">
+    <input type="text" id="codigoAlumno" placeholder="Ingresa tu código de alumno" required />
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <div id="resultadoAcceso"></div>
+
+  <script>
+    const fechasUnidades = [
+      { unidad: "Unidad 1", inicio: new Date("2025-08-04"), fin: new Date("2025-12-05"), enlace: "unidad1.html" },
+      { unidad: "Unidad 2", inicio: new Date("2026-01-06"), fin: new Date("2026-06-06"), enlace: "unidad2.html" },
+      { unidad: "Unidad 3", inicio: new Date("2026-08-03"), fin: new Date("2026-12-04"), enlace: "unidad3.html" },
+      { unidad: "Unidad 4", inicio: new Date("2027-01-04"), fin: new Date("2027-06-04"), enlace: "unidad4.html" },
+      { unidad: "Unidad 5", inicio: new Date("2027-08-02"), fin: new Date("2027-12-03"), enlace: "unidad5.html" },
+      { unidad: "Unidad 6", inicio: new Date("2028-01-10"), fin: new Date("2028-06-09"), enlace: "unidad6.html" },
+      { unidad: "Unidad 7", inicio: new Date("2028-08-07"), fin: new Date("2028-12-08"), enlace: "unidad7.html" },
+    ];
+
+    document.getElementById("formAcceso").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const codigo = document.getElementById("codigoAlumno").value.trim();
+      const hoy = new Date();
+      const resultado = document.getElementById("resultadoAcceso");
+
+      if (codigo === "0000") {
+        const unidadActual = fechasUnidades.find(f =>
+          hoy >= f.inicio && hoy <= f.fin
+        );
+
+        if (unidadActual) {
+          resultado.innerHTML = `
+            <p><strong>${unidadActual.unidad}</strong> está activa.</p>
+            <a href="${unidadActual.enlace}" target="_blank">Acceder a contenido</a>
+          `;
+        } else {
+          resultado.innerHTML = "<p>No hay unidades activas actualmente.</p>";
+        }
+      } else {
+        resultado.innerHTML = "<p>Código inválido. Intenta nuevamente.</p>";
+      }
+    });
+  </script>
+</section>
 
   <main>
     <h2>Ingeniería en Energías Renovables / Ambiental</h2>
