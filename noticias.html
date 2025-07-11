@@ -2,32 +2,50 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Noticias - Universidad Ejemplo</title>
-  <link rel="stylesheet" href="css/estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias | UTERA</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
   <header>
-    <h1>Noticias y Eventos</h1>
-    <p>Entérate de lo que sucede en nuestra universidad.</p>
+    <div class="logo-container">
+      <img src="logo-utera.png" alt="Logo UTERA" class="logo">
+      <div class="info-header">
+        <h1>UTERA</h1>
+        <p>Universidad de Tecnología en Energía, Redes y Aplicaciones</p>
+        <small>“Innovación aplicada para un planeta mejor”</small>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="software.html">Desarrollo de Software</a></li>
+        <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+        <li><a href="renovables.html">Energías Renovables</a></li>
+        <li><a href="noticias.html" class="activo">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="acerca.html">Acerca de</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="contenido">
-    <article>
-      <h3>🎓 Apertura del ciclo escolar 2025-A</h3>
-      <p><strong>Fecha:</strong> 10 de agosto de 2025</p>
-      <p>Ya están abiertas las inscripciones. ¡Forma parte de una de nuestras tres carreras profesionales!</p>
-    </article>
+  <main>
+    <h2 class="fade delay1">Noticias recientes</h2>
+    <section class="noticia fade delay2">
+      <h3>UTERA inaugura nuevo laboratorio de energías limpias</h3>
+      <p>En junio de 2025, UTERA abrió un moderno laboratorio equipado con paneles solares, aerogeneradores y simuladores de red inteligente.</p>
+    </section>
 
-    <article>
-      <h3>🔬 Nueva carrera en desarrollo: Ingeniería en Inteligencia Artificial</h3>
-      <p><strong>Fecha:</strong> 5 de julio de 2025</p>
-      <p>Estamos trabajando para abrir una nueva carrera en IA, alineada con las necesidades tecnológicas del país.</p>
-    </article>
+    <section class="noticia fade delay3">
+      <h3>Estudiantes de Ciberseguridad participan en hackatón internacional</h3>
+      <p>El equipo UTERA-Cyber ganó el segundo lugar en el reto de ciberdefensa organizado por la ONU, destacando por su estrategia innovadora.</p>
+    </section>
 
-    <br>
-    <a href="index.html">← Volver al inicio</a>
-  </div>
-
+    <section class="noticia fade delay4">
+      <h3>Nuevo programa de movilidad internacional</h3>
+      <p>Se firmó convenio con universidades de Canadá, Alemania y Chile para intercambio académico en áreas de desarrollo de software y medio ambiente.</p>
+    </section>
+  </main>
 </body>
 </html>
