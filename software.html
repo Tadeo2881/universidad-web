@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ingeniería en Desarrollo de Software | UTERA – Universidad de Tecnología en Energía, Redes y Aplicaciones</title>
-  <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desarrollo de Software | UTERA</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="logo-utera.png" alt="Logo UTERA" class="logo">
+      <img src="logo-utera.png" alt="Logo UTERA" class="logo" />
       <div class="info-header">
         <h1>UTERA</h1>
         <p>Universidad de Tecnología en Energía, Redes y Aplicaciones</p>
@@ -30,25 +30,142 @@
     </nav>
   </header>
 
+  <section class="acceso-unidades fade delay7">
+    <h3>Acceso a contenido por unidad</h3>
+    <p>Ingresa tu código de alumno para acceder al contenido de tu unidad activa.</p>
+    <form id="formAcceso">
+      <input type="text" id="codigoAlumno" placeholder="Ingresa tu código de alumno" required />
+      <button type="submit">Ingresar</button>
+    </form>
+    <div id="resultadoAcceso"></div>
+    <script>
+      const fechasUnidades = [
+        { unidad: "Unidad 1", inicio: new Date("2025-08-04"), fin: new Date("2025-12-05"), enlace: "unidad1_sw.html" },
+        { unidad: "Unidad 2", inicio: new Date("2026-01-06"), fin: new Date("2026-06-06"), enlace: "unidad2_sw.html" },
+        { unidad: "Unidad 3", inicio: new Date("2026-08-03"), fin: new Date("2026-12-04"), enlace: "unidad3_sw.html" },
+        { unidad: "Unidad 4", inicio: new Date("2027-01-04"), fin: new Date("2027-06-04"), enlace: "unidad4_sw.html" },
+        { unidad: "Unidad 5", inicio: new Date("2027-08-02"), fin: new Date("2027-12-03"), enlace: "unidad5_sw.html" },
+        { unidad: "Unidad 6", inicio: new Date("2028-01-10"), fin: new Date("2028-06-09"), enlace: "unidad6_sw.html" },
+        { unidad: "Unidad 7", inicio: new Date("2028-08-07"), fin: new Date("2028-12-08"), enlace: "unidad7_sw.html" },
+      ];
+      document.getElementById("formAcceso").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const codigo = document.getElementById("codigoAlumno").value.trim();
+        const hoy = new Date();
+        const resultado = document.getElementById("resultadoAcceso");
+
+        if (codigo === "0000") {
+          const unidadActual = fechasUnidades.find(f =>
+            hoy >= f.inicio && hoy <= f.fin
+          );
+          if (unidadActual) {
+            resultado.innerHTML = `
+              <p><strong>${unidadActual.unidad}</strong> está activa.</p>
+              <a href="${unidadActual.enlace}" target="_blank">Acceder a contenido</a>
+            `;
+          } else {
+            resultado.innerHTML = "<p>No hay unidades activas actualmente.</p>";
+          }
+        } else {
+          resultado.innerHTML = "<p>Código inválido. Intenta nuevamente.</p>";
+        }
+      });
+    </script>
+  </section>
+
   <main>
     <h2>Ingeniería en Desarrollo de Software</h2>
     <p class="fade delay1">
-      La carrera de Ingeniería en Desarrollo de Software forma profesionales capaces de diseñar, desarrollar, implementar y mantener sistemas y aplicaciones tecnológicas que respondan a las necesidades actuales del sector empresarial, educativo e industrial.
+      Esta carrera te prepara para diseñar, construir y mantener sistemas de software innovadores, seguros y eficientes que respondan a necesidades del entorno social, industrial y tecnológico.
     </p>
 
     <h3 class="fade delay2">¿Qué aprenderás?</h3>
     <ul class="fade delay3">
-      <li>Lenguajes de programación modernos (JavaScript, Python, Java)</li>
+      <li>Programación avanzada en diversos lenguajes</li>
       <li>Desarrollo web y móvil</li>
-      <li>Metodologías ágiles (Scrum, Kanban)</li>
-      <li>Gestión de bases de datos</li>
-      <li>Diseño de interfaces y experiencia de usuario (UI/UX)</li>
+      <li>Bases de datos y análisis de información</li>
+      <li>Ingeniería de software y metodologías ágiles</li>
+      <li>Seguridad en aplicaciones y redes</li>
     </ul>
 
     <h3 class="fade delay4">Perfil de egreso</h3>
     <p class="fade delay5">
-      Al egresar, podrás integrarte a empresas tecnológicas, startups o emprender tu propio proyecto, participando en el ciclo completo del desarrollo de software y aplicando soluciones innovadoras para transformar tu entorno.
+      Al egresar, estarás capacitado para integrarte en empresas de tecnología, consultoría o emprender proyectos propios. Podrás diseñar, implementar y liderar soluciones de software con impacto social y económico.
     </p>
+
+    <section class="plan-academico fade delay6">
+      <h3>Plan Académico</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Unidad</th>
+            <th>Periodo</th>
+            <th>Asignaturas</th>
+            <th>Duración (semanas)</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Unidad 1</td>
+            <td>Ago–Dic 2025</td>
+            <td>Fundamentos de Programación, Álgebra Lineal, Lógica Computacional, Ética y Sociedad, Comunicación Oral y Escrita</td>
+            <td>18</td>
+            <td>04/08/2025</td>
+            <td>05/12/2025</td>
+          </tr>
+          <tr>
+            <td>Unidad 2</td>
+            <td>Ene–Jun 2026</td>
+            <td>Programación Orientada a Objetos, Matemáticas Discretas, Física para Computación, Inglés I, Diseño de Algoritmos</td>
+            <td>18</td>
+            <td>06/01/2026</td>
+            <td>06/06/2026</td>
+          </tr>
+          <tr>
+            <td>Unidad 3</td>
+            <td>Ago–Dic 2026</td>
+            <td>Bases de Datos, Desarrollo Web I, Estructuras de Datos, Inglés II, Probabilidad y Estadística</td>
+            <td>18</td>
+            <td>03/08/2026</td>
+            <td>04/12/2026</td>
+          </tr>
+          <tr>
+            <td>Unidad 4</td>
+            <td>Ene–Jun 2027</td>
+            <td>Desarrollo Web II, Arquitectura de Computadoras, Ingeniería de Software, Inglés Técnico, Seguridad en Software</td>
+            <td>18</td>
+            <td>04/01/2027</td>
+            <td>04/06/2027</td>
+          </tr>
+          <tr>
+            <td>Unidad 5</td>
+            <td>Ago–Dic 2027</td>
+            <td>Aplicaciones Móviles, Desarrollo en la Nube, Modelado de Datos, DevOps, Inteligencia Artificial</td>
+            <td>18</td>
+            <td>02/08/2027</td>
+            <td>03/12/2027</td>
+          </tr>
+          <tr>
+            <td>Unidad 6</td>
+            <td>Ene–Jun 2028</td>
+            <td>Gestión de Proyectos de Software, Big Data, Internet de las Cosas, Emprendimiento Tecnológico, Taller de Proyectos</td>
+            <td>18</td>
+            <td>10/01/2028</td>
+            <td>09/06/2028</td>
+          </tr>
+          <tr>
+            <td>Unidad 7</td>
+            <td>Ago–Dic 2028</td>
+            <td>Proyecto Integrador, Prácticas Profesionales, Auditoría de Software, Ética Profesional, Seminario de Innovación</td>
+            <td>18</td>
+            <td>07/08/2028</td>
+            <td>08/12/2028</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </main>
 </body>
 </html>
