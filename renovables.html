@@ -6,7 +6,6 @@
   <title>Energías Renovables | UTERA</title>
   <link rel="stylesheet" href="estilos.css" />
   <style>
-    /* Estilo visual para la sección de acceso */
     .acceso-unidades {
       margin: 40px auto;
       max-width: 600px;
@@ -16,7 +15,6 @@
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
-
     .acceso-unidades input[type="text"] {
       padding: 10px;
       width: 60%;
@@ -25,7 +23,6 @@
       margin-bottom: 10px;
       font-size: 1rem;
     }
-
     .acceso-unidades button {
       padding: 10px 20px;
       background: #007ACC;
@@ -36,16 +33,13 @@
       font-weight: bold;
       transition: background 0.3s ease;
     }
-
     .acceso-unidades button:hover {
       background: #005fa3;
     }
-
     #resultadoAcceso {
       margin-top: 20px;
       font-size: 1.1rem;
     }
-
     #resultadoAcceso a {
       display: inline-block;
       margin-top: 10px;
@@ -56,142 +50,40 @@
       border-radius: 6px;
       transition: background 0.3s ease;
     }
-
     #resultadoAcceso a:hover {
       background: #218838;
+    }
+    .unidad-activa {
+      margin-top: 40px;
+      padding: 20px;
+      background: #eef;
+      border-radius: 10px;
+    }
+    .actividad {
+      margin: 20px 0;
+      text-align: left;
+    }
+    .actividad label {
+      display: block;
+      margin-top: 10px;
+    }
+    .actividad button {
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="logo-utera.png" alt="Logo UTERA" class="logo" />
-      <div class="info-header">
-        <h1>UTERA</h1>
-        <p>Universidad de Tecnología en Energía, Redes y Aplicaciones</p>
-        <small>“Innovación aplicada para un planeta mejor”</small>
-      </div>
-    </div>
+  <!-- contenido previo -->
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="software.html">Desarrollo de Software</a></li>
-        <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
-        <li><a href="renovables.html" class="activo">Energías Renovables</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="acerca.html">Acerca de</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <h2>Ingeniería en Energías Renovables / Ambiental</h2>
-    <p class="fade delay1">
-      Esta carrera prepara profesionistas capaces de diseñar, evaluar y operar sistemas sostenibles de generación y uso de energía, promoviendo el cuidado del medio ambiente y el uso eficiente de los recursos naturales.
-    </p>
-
-    <h3 class="fade delay2">¿Qué aprenderás?</h3>
-    <ul class="fade delay3">
-      <li>Energía solar, eólica, hidráulica y geotérmica</li>
-      <li>Diseño y análisis de sistemas energéticos</li>
-      <li>Normas ambientales y energéticas</li>
-      <li>Gestión sustentable de recursos naturales</li>
-      <li>Proyectos de mitigación del cambio climático</li>
-    </ul>
-
-    <h3 class="fade delay4">Perfil de egreso</h3>
-    <p class="fade delay5">
-      Al egresar, podrás integrarte en sectores públicos o privados para liderar iniciativas sustentables, instalar tecnologías limpias o asesorar proyectos energéticos enfocados en eficiencia, impacto ambiental y desarrollo regional.
-    </p>
-
-    <section class="plan-academico fade delay6">
-      <h3>Plan Académico</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Unidad</th>
-            <th>Periodo</th>
-            <th>Asignaturas</th>
-            <th>Duración (semanas)</th>
-            <th>Inicio</th>
-            <th>Fin</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Unidad 1</td>
-            <td>Ago–Dic 2025</td>
-            <td>Álgebra Lineal, Fundamentos de Programación, Introducción a la Ingeniería, Ética y Sociedad, Comunicación Oral y Escrita</td>
-            <td>18</td>
-            <td>04/08/2025</td>
-            <td>05/12/2025</td>
-          </tr>
-          <tr>
-            <td>Unidad 2</td>
-            <td>Ene–Jun 2026</td>
-            <td>Cálculo Diferencial, Física I (Mecánica), Medio Ambiente y Desarrollo Sostenible, Lógica Computacional, Inglés I</td>
-            <td>18</td>
-            <td>06/01/2026</td>
-            <td>06/06/2026</td>
-          </tr>
-          <tr>
-            <td>Unidad 3</td>
-            <td>Ago–Dic 2026</td>
-            <td>Cálculo Integral, Estadística, Fundamentos de Redes, Desarrollo de Habilidades del Pensamiento, Inglés II</td>
-            <td>18</td>
-            <td>03/08/2026</td>
-            <td>04/12/2026</td>
-          </tr>
-          <tr>
-            <td>Unidad 4</td>
-            <td>Ene–Jun 2027</td>
-            <td>Termodinámica, Energía Solar, Introducción a las Energías Renovables, Electricidad y Magnetismo, Ecología</td>
-            <td>18</td>
-            <td>04/01/2027</td>
-            <td>04/06/2027</td>
-          </tr>
-          <tr>
-            <td>Unidad 5</td>
-            <td>Ago–Dic 2027</td>
-            <td>Energía Eólica, Energía Hidráulica, Instrumentación Ambiental, Evaluación de Impacto Ambiental, Legislación Ambiental</td>
-            <td>18</td>
-            <td>02/08/2027</td>
-            <td>03/12/2027</td>
-          </tr>
-          <tr>
-            <td>Unidad 6</td>
-            <td>Ene–Jun 2028</td>
-            <td>Sistemas Fotovoltaicos, Biocombustibles, Gestión de Proyectos de Energía, Calidad del Aire y del Agua, Taller de Proyectos Energéticos</td>
-            <td>18</td>
-            <td>10/01/2028</td>
-            <td>09/06/2028</td>
-          </tr>
-          <tr>
-            <td>Unidad 7</td>
-            <td>Ago–Dic 2028</td>
-            <td>Proyecto Integrador, Prácticas Profesionales, Economía de la Energía, Innovación Sostenible, Seminario de Impacto Social</td>
-            <td>18</td>
-            <td>07/08/2028</td>
-            <td>08/12/2028</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="acceso-unidades fade delay7">
-      <h3>Acceso a contenido por unidad</h3>
-      <p>Ingresa tu código de alumno para acceder al contenido de tu unidad activa.</p>
-
-      <form id="formAcceso">
-        <input type="text" id="codigoAlumno" placeholder="Ingresa tu código de alumno" required />
-        <button type="submit">Ingresar</button>
-      </form>
-
-      <div id="resultadoAcceso"></div>
-    </section>
-  </main>
+  <section class="acceso-unidades fade delay7">
+    <h3>Acceso a contenido por unidad</h3>
+    <p>Ingresa tu código de alumno para acceder al contenido de tu unidad activa.</p>
+    <form id="formAcceso">
+      <input type="text" id="codigoAlumno" placeholder="Ingresa tu código de alumno" required />
+      <button type="submit">Ingresar</button>
+    </form>
+    <div id="resultadoAcceso"></div>
+  </section>
 
   <script>
     const fechasUnidades = [
@@ -211,22 +103,63 @@
       const resultado = document.getElementById("resultadoAcceso");
 
       if (codigo === "0000") {
-        const unidadActual = fechasUnidades.find(f =>
-          hoy >= f.inicio && hoy <= f.fin
-        );
+        const unidadActual = fechasUnidades.find(f => hoy >= f.inicio && hoy <= f.fin);
 
-        if (unidadActual) {
+        if (unidadActual && unidadActual.unidad === "Unidad 1") {
           resultado.innerHTML = `
-            <p><strong>${unidadActual.unidad}</strong> está activa.</p>
-            <a href="${unidadActual.enlace}" target="_blank">Acceder a contenido</a>
+            <div class="unidad-activa">
+              <h3>${unidadActual.unidad} - Contenido Activo</h3>
+              <iframe src="unidad1-diapositivas.pdf" width="100%" height="400px"></iframe>
+              <div class="actividad">
+                <h4>Actividad 1: Verdadero o Falso</h4>
+                <label><input type="checkbox" value="true"> La energía solar es una fuente renovable.</label>
+                <label><input type="checkbox" value="false"> La energía nuclear es 100% limpia y renovable.</label>
+                <label><input type="checkbox" value="true"> La eficiencia energética reduce el consumo.</label>
+                <button onclick="evaluarVF()">Evaluar Actividad 1</button>
+                <p id="resultado1"></p>
+              </div>
+              <div class="actividad">
+                <h4>Actividad 2: Selección Múltiple</h4>
+                <label>¿Cuál es una ventaja de las energías renovables?</label>
+                <select id="pregunta2">
+                  <option value="">Selecciona una opción</option>
+                  <option value="correcto">No emiten gases de efecto invernadero</option>
+                  <option value="incorrecto">Generan residuos tóxicos</option>
+                  <option value="incorrecto">Dependen del petróleo</option>
+                </select>
+                <button onclick="evaluarSeleccion()">Evaluar Actividad 2</button>
+                <p id="resultado2"></p>
+              </div>
+            </div>
           `;
         } else {
-          resultado.innerHTML = "<p>No hay unidades activas actualmente.</p>";
+          resultado.innerHTML = "<p>No hay unidades activas actualmente o contenido no disponible.</p>";
         }
       } else {
         resultado.innerHTML = "<p style='color:red;'>Código inválido. Intenta nuevamente.</p>";
       }
     });
+
+    function evaluarVF() {
+      const checkboxes = document.querySelectorAll(".actividad input[type='checkbox']");
+      let score = 0;
+      checkboxes.forEach(cb => {
+        if ((cb.checked && cb.value === "true") || (!cb.checked && cb.value === "false")) score++;
+      });
+      const total = 3;
+      localStorage.setItem("actividad1", `${score}/${total}`);
+      document.getElementById("resultado1").innerText = `Resultado: ${score}/${total}`;
+    }
+
+    function evaluarSeleccion() {
+      const respuesta = document.getElementById("pregunta2").value;
+      let mensaje;
+      if (respuesta === "correcto") mensaje = "¡Correcto!";
+      else if (respuesta === "incorrecto") mensaje = "Respuesta incorrecta.";
+      else mensaje = "Selecciona una opción.";
+      localStorage.setItem("actividad2", mensaje);
+      document.getElementById("resultado2").innerText = mensaje;
+    }
   </script>
 </body>
 </html>
