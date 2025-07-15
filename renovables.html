@@ -231,3 +231,168 @@ agregalo al codigo este ya nomas para pegar
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Energías Renovables | UTERA</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    .acceso-unidades {
+      margin: 40px auto;
+      max-width: 600px;
+      text-align: center;
+      background: #f0f8ff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    .acceso-unidades input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .acceso-unidades button {
+      padding: 10px 20px;
+      background: #007ACC;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .acceso-unidades button:hover {
+      background: #005fa3;
+    }
+    #resultadoAcceso {
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+    #resultadoAcceso a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    #resultadoAcceso a:hover {
+      background: #218838;
+    }
+    .unidad-activa {
+      margin-top: 40px;
+      padding: 20px;
+      background: #eef;
+      border-radius: 10px;
+    }
+    .actividad {
+      margin: 20px 0;
+      text-align: left;
+    }
+    .actividad label {
+      display: block;
+      margin-top: 10px;
+    }
+    .actividad button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- contenido previo -->
+
+  <section class="acceso-unidades fade delay7">
+    <h3>Acceso a contenido por unidad</h3>
+    <p>Ingresa tu código de alumno para acceder al contenido de tu unidad activa.</p>
+    <form id="formAcceso">
+      <input type="text" id="codigoAlumno" placeholder="Ingresa tu código de alumno" required />
+      <button type="submit">Ingresar</button>
+    </form>
+    <div id="resultadoAcceso"></div>
+  </section>
+
+  <script>
+    const fechasUnidades = [
+      { unidad: "Unidad 1", inicio: new Date("2025-07-04"), fin: new Date("2025-12-05"), enlace: "unidad1.html" },
+      { unidad: "Unidad 2", inicio: new Date("2026-01-06"), fin: new Date("2026-06-06"), enlace: "unidad2.html" },
+      { unidad: "Unidad 3", inicio: new Date("2026-08-03"), fin: new Date("2026-12-04"), enlace: "unidad3.html" },
+      { unidad: "Unidad 4", inicio: new Date("2027-01-04"), fin: new Date("2027-06-04"), enlace: "unidad4.html" },
+      { unidad: "Unidad 5", inicio: new Date("2027-08-02"), fin: new Date("2027-12-03"), enlace: "unidad5.html" },
+      { unidad: "Unidad 6", inicio: new Date("2028-01-10"), fin: new Date("2028-06-09"), enlace: "unidad6.html" },
+      { unidad: "Unidad 7", inicio: new Date("2028-08-07"), fin: new Date("2028-12-08"), enlace: "unidad7.html" },
+    ];
+
+    document.getElementById("formAcceso").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const codigo = document.getElementById("codigoAlumno").value.trim();
+      const hoy = new Date();
+      const resultado = document.getElementById("resultadoAcceso");
+
+      if (codigo === "0000") {
+        const unidadActual = fechasUnidades.find(f => hoy >= f.inicio && hoy <= f.fin);
+
+        if (unidadActual && unidadActual.unidad === "Unidad 1") {
+          resultado.innerHTML = `
+            <div class="unidad-activa">
+              <h3>${unidadActual.unidad} - Contenido Activo</h3>
+              <iframe src="unidad1-diapositivas.pdf" width="100%" height="400px"></iframe>
+              <div class="actividad">
+                <h4>Actividad 1: Verdadero o Falso</h4>
+                <label><input type="checkbox" value="true"> La energía solar es una fuente renovable.</label>
+                <label><input type="checkbox" value="false"> La energía nuclear es 100% limpia y renovable.</label>
+                <label><input type="checkbox" value="true"> La eficiencia energética reduce el consumo.</label>
+                <button onclick="evaluarVF()">Evaluar Actividad 1</button>
+                <p id="resultado1"></p>
+              </div>
+              <div class="actividad">
+                <h4>Actividad 2: Selección Múltiple</h4>
+                <label>¿Cuál es una ventaja de las energías renovables?</label>
+                <select id="pregunta2">
+                  <option value="">Selecciona una opción</option>
+                  <option value="correcto">No emiten gases de efecto invernadero</option>
+                  <option value="incorrecto">Generan residuos tóxicos</option>
+                  <option value="incorrecto">Dependen del petróleo</option>
+                </select>
+                <button onclick="evaluarSeleccion()">Evaluar Actividad 2</button>
+                <p id="resultado2"></p>
+              </div>
+            </div>
+          `;
+        } else {
+          resultado.innerHTML = "<p>No hay unidades activas actualmente o contenido no disponible.</p>";
+        }
+      } else {
+        resultado.innerHTML = "<p style='color:red;'>Código inválido. Intenta nuevamente.</p>";
+      }
+    });
+
+    function evaluarVF() {
+      const checkboxes = document.querySelectorAll(".actividad input[type='checkbox']");
+      let score = 0;
+      checkboxes.forEach(cb => {
+        if ((cb.checked && cb.value === "true") || (!cb.checked && cb.value === "false")) score++;
+      });
+      const total = 3;
+      localStorage.setItem("actividad1", `${score}/${total}`);
+      document.getElementById("resultado1").innerText = `Resultado: ${score}/${total}`;
+    }
+
+    function evaluarSeleccion() {
+      const respuesta = document.getElementById("pregunta2").value;
+      let mensaje;
+      if (respuesta === "correcto") mensaje = "¡Correcto!";
+      else if (respuesta === "incorrecto") mensaje = "Respuesta incorrecta.";
+      else mensaje = "Selecciona una opción.";
+      localStorage.setItem("actividad2", mensaje);
+      document.getElementById("resultado2").innerText = mensaje;
+    }
+  </script>
+</body>
+</html>
