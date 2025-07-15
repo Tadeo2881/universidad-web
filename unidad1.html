@@ -1,1 +1,124 @@
+https://tuusuario.github.io/tu-repositorio/unidad1.html
+<a href="unidad1.html" class="boton-verde">Acceder a contenido</a>
+<a href="unidad1.html" target="_self">
+  <button style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+    Iniciar Unidad 1
+  </button>
+</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTERA - Unidad 1</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4faff;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #007ACC;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .contenedor {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .actividad {
+      margin-bottom: 30px;
+    }
+    .actividad h3 {
+      margin-bottom: 10px;
+    }
+    .actividad label, .actividad select {
+      display: block;
+      margin-top: 8px;
+    }
+    button {
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: #007ACC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #resultado1, #resultado2 {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UTERA</h1>
+    <p>Unidad 1: Introducción a las Energías Renovables</p>
+  </header>
+
+  <div class="contenedor">
+    <h2>Material de estudio</h2>
+    <iframe src="unidad1-diapositivas.pdf"></iframe>
+
+    <div class="actividad">
+      <h3>Actividad 1: Verdadero o Falso</h3>
+      <label><input type="checkbox" value="true"> La energía solar es una fuente renovable.</label>
+      <label><input type="checkbox" value="false"> La energía nuclear es 100% limpia y renovable.</label>
+      <label><input type="checkbox" value="true"> La eficiencia energética reduce el consumo.</label>
+      <button onclick="evaluarVF()">Evaluar Actividad 1</button>
+      <p id="resultado1"></p>
+    </div>
+
+    <div class="actividad">
+      <h3>Actividad 2: Selección Múltiple</h3>
+      <label>¿Cuál es una ventaja de las energías renovables?</label>
+      <select id="pregunta2">
+        <option value="">Selecciona una opción</option>
+        <option value="correcto">No emiten gases de efecto invernadero</option>
+        <option value="incorrecto">Generan residuos tóxicos</option>
+        <option value="incorrecto">Dependen del petróleo</option>
+      </select>
+      <button onclick="evaluarSeleccion()">Evaluar Actividad 2</button>
+      <p id="resultado2"></p>
+    </div>
+  </div>
+
+  <script>
+    function evaluarVF() {
+      const checkboxes = document.querySelectorAll(".actividad input[type='checkbox']");
+      let score = 0;
+      checkboxes.forEach(cb => {
+        if ((cb.checked && cb.value === "true") || (!cb.checked && cb.value === "false")) score++;
+      });
+      const total = 3;
+      localStorage.setItem("actividad1", `${score}/${total}`);
+      document.getElementById("resultado1").innerText = `Resultado: ${score}/${total}`;
+    }
+
+    function evaluarSeleccion() {
+      const respuesta = document.getElementById("pregunta2").value;
+      let mensaje;
+      if (respuesta === "correcto") mensaje = "¡Correcto!";
+      else if (respuesta === "incorrecto") mensaje = "Respuesta incorrecta.";
+      else mensaje = "Selecciona una opción.";
+      localStorage.setItem("actividad2", mensaje);
+      document.getElementById("resultado2").innerText = mensaje;
+    }
+  </script>
+</body>
+</html>
 
