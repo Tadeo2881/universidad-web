@@ -1,5 +1,5 @@
 /* =========================================
-   1. RESET Y BASES (Configuración inicial)
+   1. RESET Y BASES 
    ========================================= */
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f0f2f5; /* Un gris más moderno */
+  background-color: #f0f2f5; 
   color: #333;
   line-height: 1.6;
 }
@@ -49,11 +49,11 @@ header {
 }
 
 /* =========================================
-   3. MENÚ DE NAVEGACIÓN (Profesional)
+   3. MENÚ DE NAVEGACIÓN
    ========================================= */
 nav {
   background-color: #333333; /* Fondo oscuro elegante */
-  position: sticky; /* Se queda arriba al bajar */
+  position: sticky; 
   top: 0;
   z-index: 1000;
 }
@@ -76,14 +76,12 @@ nav ul li a {
   transition: all 0.3s ease;
 }
 
-/* Color cuando pasas el mouse o tocas en el iPad */
 nav ul li a:hover {
   background-color: #0055aa;
-  color: #ffffff;
 }
 
 /* =========================================
-   4. CONTENIDO PRINCIPAL
+   4. CONTENIDO Y BOTONES DE CARRERAS
    ========================================= */
 main {
   padding: 40px 20px;
@@ -94,38 +92,37 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-  color: #003366;
-  margin-bottom: 20px;
+.botones-carreras {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
 }
 
-/* =========================================
-   5. TABLAS (Plan Académico)
-   ========================================= */
-.plan-academico table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.plan-academico th,
-.plan-academico td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-}
-
-.plan-academico th {
-  background-color: #004080;
+.boton {
+  display: block;
+  background-color: #0055aa;
   color: white;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: center;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
-.plan-academico tr:nth-child(even) {
-  background-color: #f9f9f9; /* Filas de colores alternos */
+.boton:hover {
+  background-color: #003366;
+  transform: scale(1.02);
+}
+
+.icono {
+  margin-right: 10px;
 }
 
 /* =========================================
-   6. ANIMACIONES
+   5. ANIMACIONES
    ========================================= */
 @keyframes fadeInUp {
   from {
