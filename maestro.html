@@ -6,23 +6,50 @@
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <header><div class="logo-container"><h1>Panel del Maestro</h1></div></header>
+  <header>
+    <div class="logo-container">
+      <h1>Panel de Control Docente</h1>
+      <p style="color: #ffcc00;">🔓 Modo Edición Activado</p>
+    </div>
+  </header>
+
   <main>
     <section class="acceso-unidad">
-      <h3>📤 Subir Nuevo Material de Clase</h3>
-      <p>Selecciona el archivo PDF o presentación para tus alumnos.</p>
-      <input type="file" style="margin: 20px 0; border: 1px dashed #003366; padding: 20px; width: 100%;">
-      <button class="boton-ingresar" style="background-color: #003366;">Publicar en la Plataforma</button>
+      <h3>📤 Subir y Modificar Contenido</h3>
+      <p><i>Nota: Puedes hacer clic en los textos de abajo para editarlos directamente.</i></p>
+      <input type="file" style="margin: 15px 0;">
+      <button class="boton-ingresar" style="background-color: #003366;">Guardar Cambios</button>
     </section>
 
-    <h3 style="margin-top: 30px;">Tareas Recibidas por Calificar</h3>
-    <table>
-      <tr><th>Alumno</th><th>Materia</th><th>Archivo Tarea</th><th>Calificación</th></tr>
-      <tr><td>Juan Pérez</td><td>Software</td><td>ejercicio1.pdf</td><td><input type="number" style="width: 50px;"></td></tr>
-      <tr><td>Maria Lopez</td><td>Energías</td><td>proyecto_final.docx</td><td><input type="number" style="width: 50px;"></td></tr>
+    <h3 style="margin-top: 30px;">Control de Calificaciones (Editable)</h3>
+    <table id="tablaCalificaciones">
+      <tr>
+        <th>Alumno</th>
+        <th>Materia</th>
+        <th>Tarea</th>
+        <th>Calificación</th>
+      </tr>
+      <tr contenteditable="true">
+        <td>Juan Pérez</td>
+        <td>Desarrollo Software</td>
+        <td>Ejercicio 1</td>
+        <td>10</td>
+      </tr>
+      <tr contenteditable="true">
+        <td>Maria Lopez</td>
+        <td>Energías</td>
+        <td>Proyecto Final</td>
+        <td>9</td>
+      </tr>
     </table>
+
+    <div style="margin-top: 40px; border: 1px dashed #ccc; padding: 20px;" contenteditable="true">
+      <h4>Avisos para la clase:</h4>
+      <p>Escribe aquí los nuevos avisos que verán los alumnos...</p>
+    </div>
+
     <br>
-    <a href="login.html" style="color: red;">← Cerrar Sesión Segura</a>
+    <a href="login.html" style="color: red;">Cerrar Sesión Segura</a>
   </main>
 </body>
 </html>
