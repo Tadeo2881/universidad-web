@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acceso UTERA</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
@@ -15,29 +16,26 @@
 
   <main style="display: flex; gap: 20px; flex-wrap: wrap;">
     <section class="acceso-unidad" style="flex: 1; min-width: 280px; border-top: 5px solid #003366;">
-      <h2>👨‍🏫 Maestro</h2>
-      <p>Clave de acceso requerida</p>
-      <input type="text" id="userMaestro" placeholder="Usuario Docente"><br>
-      <input type="password" id="passMaestro" placeholder="Clave DiES" style="width: 100%; padding: 10px; margin: 10px 0;"><br>
-      <button onclick="validarMaestro()" class="boton" style="background-color: #003366; width: 100%; border: none; cursor: pointer;">Entrar al Panel</button>
+      <h2>👨‍🏫 Acceso Maestro</h2>
+      <p>Introduce tu clave de docente para modificar contenidos.</p>
+      <input type="password" id="claveMaestro" placeholder="Clave de acceso" style="width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #003366; border-radius: 5px;">
+      <button onclick="verificarAcceso()" class="boton" style="background-color: #003366; width: 100%; border: none; cursor: pointer;">Entrar al Panel</button>
     </section>
 
     <section class="acceso-unidad" style="flex: 1; min-width: 280px; border-top: 5px solid #4a90e2;">
-      <h2>👨‍🎓 Alumno</h2>
-      <p>Ingresa con tu matrícula</p>
-      <input type="text" placeholder="Matrícula Alumno"><br>
-      <input type="password" placeholder="Contraseña" style="width: 100%; padding: 10px; margin: 10px 0;"><br>
-      <a href="alumno.html" class="boton">Entrar como Alumno</a>
+      <h2>👨‍制造 Alumno</h2>
+      <p>Consulta tus tareas y descarga material.</p>
+      <a href="alumno.html" class="boton" style="width: 100%; display: block; margin-top: 20px;">Entrar como Alumno</a>
     </section>
   </main>
 
   <script>
-    function validarMaestro() {
-      var clave = document.getElementById('passMaestro').value;
-      if (clave === "810217") {
+    function verificarAcceso() {
+      const pin = document.getElementById('claveMaestro').value;
+      if (pin === "810217") {
         window.location.href = "maestro.html";
       } else {
-        alert("Clave incorrecta. Solo personal autorizado.");
+        alert("❌ Clave incorrecta. Acceso denegado.");
       }
     }
   </script>
