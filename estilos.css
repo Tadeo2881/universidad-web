@@ -146,3 +146,29 @@ main {
   background-color: #004080;
   color: white;
 }
+
+/* --- NUEVOS ESTILOS PARA EL MENÚ --- */
+nav {
+    background-color: #333; /* Fondo oscuro para el menú */
+}
+
+nav ul {
+    list-style: none; /* Quita los puntos negros */
+    display: flex;    /* Alinea los botones de lado a lado */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: white; /* Letras blancas */
+    text-decoration: none; /* Quita el subrayado */
+    padding: 15px 20px;
+    font-family: sans-serif;
+}
+
+/* Color cuando pasas el dedo o el mouse */
+nav ul li a:hover {
+    background-color: #0055aa; 
+}
+
