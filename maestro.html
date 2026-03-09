@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Docente - UTERA</title>
+  <title>Panel de Gestión Docente - UTERA</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -13,39 +13,41 @@
       <img src="logo-utera.png" alt="Logo UTERA" class="logo">
       <div class="info-header">
         <h1>Panel de Gestión Docente</h1>
-        <p>Universidad UTERA - Control de Avance Académico</p>
+        <p>Universidad UTERA - Modo Administración</p>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="acceso-unidad" style="display: flex; justify-content: space-around; background: #003366; color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+    <section style="display: flex; justify-content: space-around; background: #003366; color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
       <div>
-        <p style="font-size: 0.8em; margin: 0;">Materiales 1er-2do Sem</p>
-        <span id="cont-1-2" style="font-size: 1.5em; font-weight: bold;">0</span>
+        <p style="font-size: 0.8em; margin: 0; opacity: 0.8;">Materiales 1er-2do Sem</p>
+        <span id="cont-1-2" style="font-size: 1.8em; font-weight: bold;">0</span>
       </div>
       <div style="border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
-        <p style="font-size: 0.8em; margin: 0;">Materiales 3er-4to Sem</p>
-        <span id="cont-3-4" style="font-size: 1.5em; font-weight: bold;">0</span>
+        <p style="font-size: 0.8em; margin: 0; opacity: 0.8;">Materiales 3er-4to Sem</p>
+        <span id="cont-3-4" style="font-size: 1.8em; font-weight: bold;">0</span>
       </div>
       <div style="border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
-        <p style="font-size: 0.8em; margin: 0;">Materiales 5to-6to Sem</p>
-        <span id="cont-5-6" style="font-size: 1.5em; font-weight: bold;">0</span>
+        <p style="font-size: 0.8em; margin: 0; opacity: 0.8;">Materiales 5to-6to Sem</p>
+        <span id="cont-5-6" style="font-size: 1.8em; font-weight: bold;">0</span>
       </div>
     </section>
 
-    <section class="acceso-unidad" style="text-align: left; background-color: #f8f9fa; border-left: 5px solid #ffcc00; padding: 20px; border-radius: 8px;">
-      <h3 style="margin-bottom: 15px; color: #003366;">📍 Ubicación de Contenido</h3>
+    <section class="acceso-unidad" style="text-align: left; background-color: #f8f9fa; border-left: 5px solid #003366; padding: 20px; border-radius: 8px;">
+      <h3 style="margin-bottom: 15px; color: #003366;">📍 Ubicación del Contenido</h3>
       <div style="display: flex; gap: 20px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 200px;">
-          <label><strong>Carrera:</strong></label><br>
-          <select id="carreraSelect" style="padding: 10px; border-radius: 5px; width: 100%; margin-top: 5px;">
-            <option>Software</option><option>Ciberseguridad</option><option>Energías</option>
+          <label><strong>1. Carrera:</strong></label><br>
+          <select id="carreraSelect" style="padding: 10px; border-radius: 5px; width: 100%; margin-top: 5px; border: 1px solid #ccc;">
+            <option>Ingeniería en Desarrollo de Software</option>
+            <option>Ingeniería en Ciberseguridad</option>
+            <option>Ingeniería en Energías Renovables</option>
           </select>
         </div>
         <div style="flex: 1; min-width: 150px;">
-          <label><strong>Semestre:</strong></label><br>
-          <select id="semestreSelect" style="padding: 10px; border-radius: 5px; width: 100%; margin-top: 5px;">
+          <label><strong>2. Semestre:</strong></label><br>
+          <select id="semestreSelect" style="padding: 10px; border-radius: 5px; width: 100%; margin-top: 5px; border: 1px solid #ccc;">
             <option value="1">1er Semestre</option><option value="2">2do Semestre</option>
             <option value="3">3er Semestre</option><option value="4">4to Semestre</option>
             <option value="5">5to Semestre</option><option value="6">6to Semestre</option>
@@ -55,55 +57,98 @@
     </section>
 
     <div style="display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
+      
       <div style="flex: 1; min-width: 300px; border: 2px solid #003366; padding: 20px; border-radius: 12px; background: white;">
-        <h4 style="color: #003366;">📂 Subir Archivos (PDF, PPT, EXCEL)</h4>
-        <input type="text" id="tituloMaterial" placeholder="Título del Recurso" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 5px; border: 1px solid #ccc;">
+        <h4 style="color: #003366;">📚 Subir Material / Temas</h4>
+        <p style="font-size: 0.85em; color: #666;">Formatos: PDF, PowerPoint, Excel.</p>
+        <hr style="margin: 10px 0; opacity: 0.2;">
         
-        <input type="file" id="fileInput" accept=".pdf, .ppt, .pptx, .xls, .xlsx" onchange="mostrarVistaPrevia()" style="width: 100%; padding: 10px; border: 1px dashed #003366; background: #f0f4f8;">
+        <label>Título del tema:</label>
+        <input type="text" id="tituloMaterial" placeholder="Ej: Introducción a Python" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        
+        <label>Descripción:</label>
+        <textarea id="descMaterial" placeholder="Resumen del contenido..." style="width: 100%; height: 60px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+        
+        <label style="display: block; margin-top: 10px;">Adjuntar archivo:</label>
+        <input type="file" id="fileInput" accept=".pdf, .ppt, .pptx, .xls, .xlsx" onchange="actualizarVistaPrevia()" style="margin-top: 5px; width: 100%;">
 
-        <div id="vistaPrevia" style="display: none; margin-top: 10px; padding: 10px; background: #eee; border-radius: 5px; font-size: 0.9em;">
-          <span id="infoArchivo"></span>
+        <div id="boxVista" style="display: none; margin-top: 15px; padding: 10px; background: #f0f4f8; border-radius: 8px; border: 1px solid #003366;">
+          <p style="margin: 0; font-size: 0.9em; color: #003366;"><strong>👁️ Vista previa:</strong></p>
+          <span id="nombreArchivo" style="font-size: 0.85em; color: #333;"></span>
         </div>
         
-        <button onclick="publicar()" class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #003366;">Publicar Material</button>
+        <button onclick="publicarMaterial()" class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #003366;">Publicar Material</button>
       </div>
+
+      <div style="flex: 1; min-width: 300px; border: 2px solid #28a745; padding: 20px; border-radius: 12px; background: white;">
+        <h4 style="color: #28a745;">📝 Asignar Nueva Tarea</h4>
+        <hr style="margin: 10px 0; opacity: 0.2;">
+        <label>Nombre de la tarea:</label>
+        <input type="text" placeholder="Ej: Práctica de SQL" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <label>Fecha límite:</label>
+        <input type="date" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <button class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #28a745; border: none;">Asignar Tarea</button>
+      </div>
+
     </div>
-    
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="login.html" style="color: #888; text-decoration: none;">← Salir</a>
+
+    <section class="acceso-unidad" style="margin-top: 30px; border-top: 5px solid #ffcc00; padding: 20px;">
+      <h3 style="text-align: center;">📋 Tareas por Calificar</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px; background: white;">
+        <thead>
+          <tr style="background: #003366; color: white; text-align: left;">
+            <th style="padding: 12px; border: 1px solid #ddd;">Alumno</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Materia</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Archivo</th>
+            <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">Calificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Juan Pérez</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Software</td>
+            <td style="padding: 12px; border: 1px solid #ddd;"><a href="#" style="color: #003366; font-weight: bold;">ver_archivo.pdf</a></td>
+            <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"><input type="number" placeholder="10" style="width: 50px; text-align: center;"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
+      <a href="login.html" style="color: #666; text-decoration: none; font-weight: bold;">← Salir del Portal</a>
     </div>
   </main>
 
   <script>
-    // Variables para los contadores
-    let cat1 = 0; let cat2 = 0; let cat3 = 0;
+    let c1 = 0; let c2 = 0; let c3 = 0;
 
-    function mostrarVistaPrevia() {
-      const input = document.getElementById('fileInput');
-      const vista = document.getElementById('vistaPrevia');
-      if (input.files[0]) {
-        vista.style.display = 'block';
-        document.getElementById('infoArchivo').innerText = "📄 Seleccionado: " + input.files[0].name;
+    function actualizarVistaPrevia() {
+      const file = document.getElementById('fileInput').files[0];
+      const box = document.getElementById('boxVista');
+      const info = document.getElementById('nombreArchivo');
+      if (file) {
+        box.style.display = 'block';
+        info.innerText = "📄 Archivo listo: " + file.name + " (" + (file.size/1024).toFixed(1) + " KB)";
       }
     }
 
-    function publicar() {
+    function publicarMaterial() {
       const sem = document.getElementById('semestreSelect').value;
-      const titulo = document.getElementById('tituloMaterial').value;
-
-      if(titulo === "") { alert("Ponle un título al material"); return; }
-
-      // Lógica de contadores por semestre
-      if (sem == "1" || sem == "2") { cat1++; document.getElementById('cont-1-2').innerText = cat1; }
-      else if (sem == "3" || sem == "4") { cat2++; document.getElementById('cont-3-4').innerText = cat2; }
-      else { cat3++; document.getElementById('cont-5-6').innerText = cat3; }
-
-      alert("✅ ¡Publicado!\nContenido enviado al Semestre " + sem);
+      const tit = document.getElementById('tituloMaterial').value;
       
-      // Limpiar para el siguiente
+      if(tit === "") { alert("Escribe un título"); return; }
+
+      // Actualizar contadores
+      if (sem == "1" || sem == "2") { c1++; document.getElementById('cont-1-2').innerText = c1; }
+      else if (sem == "3" || sem == "4") { c2++; document.getElementById('cont-3-4').innerText = c2; }
+      else { c3++; document.getElementById('cont-5-6').innerText = c3; }
+
+      alert("✅ ¡Publicado con éxito!");
+      
+      // Limpiar
       document.getElementById('tituloMaterial').value = "";
       document.getElementById('fileInput').value = "";
-      document.getElementById('vistaPrevia').style.display = 'none';
+      document.getElementById('boxVista').style.display = 'none';
     }
   </script>
 </body>
