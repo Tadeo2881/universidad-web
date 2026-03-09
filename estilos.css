@@ -1,5 +1,5 @@
 /* =========================================
-   1. RESET Y BASES 
+   1. RESET Y CONFIGURACIÓN BÁSICA
    ========================================= */
 * {
   margin: 0;
@@ -8,32 +8,34 @@
 }
 
 body {
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f0f2f5; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
 }
 
 /* =========================================
-   2. ENCABEZADO (Logo y Nombre)
+   2. ENCABEZADO (AZUL UTERA)
    ========================================= */
 header {
-  background-color: #003366; /* Azul Universitario */
-  color: #ffffff;
-  padding: 30px 20px;
+  background-color: #003366;
+  color: #fff;
+  padding: 20px;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .logo {
-  width: 80px;
+  width: 70px;
   height: auto;
+  background: white;
+  padding: 5px;
   border-radius: 4px;
 }
 
@@ -43,17 +45,17 @@ header {
 }
 
 .info-header p {
-  font-size: 1.1em;
+  font-size: 1em;
+  margin: 5px 0;
   color: #e0e0e0;
-  margin: 2px 0;
 }
 
 /* =========================================
    3. MENÚ DE NAVEGACIÓN
    ========================================= */
 nav {
-  background-color: #333333; /* Fondo oscuro elegante */
-  position: sticky; 
+  background-color: #333333;
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
@@ -63,7 +65,7 @@ nav ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -73,7 +75,7 @@ nav ul li a {
   text-decoration: none;
   font-weight: bold;
   padding: 15px 20px;
-  transition: all 0.3s ease;
+  transition: background 0.3s;
 }
 
 nav ul li a:hover {
@@ -81,48 +83,108 @@ nav ul li a:hover {
 }
 
 /* =========================================
-   4. CONTENIDO Y BOTONES DE CARRERAS
+   4. CONTENEDOR PRINCIPAL BLANCO
    ========================================= */
 main {
-  padding: 40px 20px;
-  max-width: 1000px;
+  padding: 30px 20px;
+  max-width: 1100px;
   margin: 20px auto;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* =========================================
+   5. TABLAS (Plan Académico)
+   ========================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9em;
+}
+
+table th {
+  background-color: #004080;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* =========================================
+   6. CUADRO DE ACCESO POR UNIDAD
+   ========================================= */
+.acceso-unidad {
+  background-color: #eef6ff;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  margin-top: 30px;
+  border: 1px solid #d0e3ff;
+}
+
+.acceso-unidad h3 {
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.acceso-unidad input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.boton-ingresar {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =========================================
+   7. BOTONES DE INICIO (Carreras)
+   ========================================= */
 .botones-carreras {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .boton {
   display: block;
-  background-color: #0055aa;
+  background-color: #2b5db2;
   color: white;
   text-decoration: none;
   padding: 20px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 1.1em;
   text-align: center;
-  transition: transform 0.2s, background-color 0.3s;
+  transition: transform 0.2s;
 }
 
 .boton:hover {
-  background-color: #003366;
-  transform: scale(1.02);
-}
-
-.icono {
-  margin-right: 10px;
+  transform: scale(1.01);
+  background-color: #1a3a7a;
 }
 
 /* =========================================
-   5. ANIMACIONES
+   8. ANIMACIONES
    ========================================= */
 @keyframes fadeInUp {
   from {
