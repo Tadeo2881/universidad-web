@@ -13,18 +13,18 @@
       <img src="logo-utera.png" alt="Logo UTERA" class="logo">
       <div class="info-header">
         <h1>Panel de Gestión Docente</h1>
-        <p>Universidad UTERA - Modo Administración</p>
+        <p>Universidad UTERA - Control de Carreras</p>
       </div>
     </div>
   </header>
 
   <main>
     <section class="acceso-unidad" style="text-align: left; background-color: #f8f9fa; border-left: 5px solid #003366;">
-      <h3 style="margin-bottom: 15px;">📍 Ubicación de Contenido</h3>
+      <h3 style="margin-bottom: 15px;">📍 Ubicación del Contenido</h3>
       <div style="display: flex; gap: 20px; flex-wrap: wrap;">
         <div>
           <label><strong>1. Carrera:</strong></label><br>
-          <select id="carrera" style="padding: 10px; border-radius: 5px; width: 250px;">
+          <select id="carrera" style="padding: 10px; border-radius: 5px; width: 250px; margin-top: 5px;">
             <option>Ingeniería en Desarrollo de Software</option>
             <option>Ingeniería en Ciberseguridad</option>
             <option>Ingeniería en Energías Renovables</option>
@@ -32,13 +32,9 @@
         </div>
         <div>
           <label><strong>2. Semestre:</strong></label><br>
-          <select id="semestre" style="padding: 10px; border-radius: 5px; width: 150px;">
-            <option>1er Semestre</option>
-            <option>2do Semestre</option>
-            <option>3er Semestre</option>
-            <option>4to Semestre</option>
-            <option>5to Semestre</option>
-            <option>6to Semestre</option>
+          <select id="semestre" style="padding: 10px; border-radius: 5px; width: 150px; margin-top: 5px;">
+            <option>1ro</option><option>2do</option><option>3ro</option>
+            <option>4to</option><option>5to</option><option>6to</option>
           </select>
         </div>
       </div>
@@ -47,50 +43,68 @@
     <div style="display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
       
       <div style="flex: 1; min-width: 300px; border: 2px solid #003366; padding: 20px; border-radius: 12px; background: white;">
-        <h4 style="color: #003366;">📚 Subir Material / Temas</h4>
-        <hr style="margin: 10px 0;">
-        <label>Título del Material:</label>
-        <input type="text" id="tituloMaterial" placeholder="Ej: Introducción a redes" style="width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <h4 style="color: #003366; margin-bottom: 10px;">📚 Subir Material / Temas</h4>
+        <p style="font-size: 0.9em; color: #666;">Publica apuntes, videos o presentaciones.</p>
+        <hr style="margin: 10px 0; opacity: 0.2;">
         
-        <label>Descripción:</label>
-        <textarea placeholder="Explica brevemente de qué trata este material..." style="width: 100%; height: 80px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+        <label>Título del tema:</label>
+        <input type="text" placeholder="Ej: Introducción a Python" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         
-        <label style="margin-top: 10px; display: block;">Adjuntar archivo (PDF, PPT, ZIP):</label>
+        <label>Descripción del contenido:</label>
+        <textarea placeholder="Escribe aquí los puntos clave del tema..." style="width: 100%; height: 80px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px;"></textarea>
+        
+        <label style="display: block; margin-top: 10px;">Adjuntar archivo:</label>
         <input type="file" style="margin-top: 5px; width: 100%;">
         
-        <button onclick="confirmarAccion('Material')" class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #003366;">Publicar Material</button>
+        <button class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #003366;">Publicar Material</button>
       </div>
 
       <div style="flex: 1; min-width: 300px; border: 2px solid #28a745; padding: 20px; border-radius: 12px; background: white;">
-        <h4 style="color: #28a745;">📝 Asignar Nueva Tarea</h4>
-        <hr style="margin: 10px 0;">
-        <label>Nombre de la Actividad:</label>
-        <input type="text" id="nombreTarea" placeholder="Ej: Práctica de Criptografía" style="width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <h4 style="color: #28a745; margin-bottom: 10px;">📝 Asignar Nueva Tarea</h4>
+        <p style="font-size: 0.9em; color: #666;">Define actividades y fechas de entrega.</p>
+        <hr style="margin: 10px 0; opacity: 0.2;">
         
-        <label>Fecha Límite de Entrega:</label>
-        <input type="date" style="width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <label>Nombre de la tarea:</label>
+        <input type="text" placeholder="Ej: Práctica de SQL" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         
-        <label>Puntaje Máximo:</label>
-        <input type="number" placeholder="100" style="width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <label>Fecha límite:</label>
+        <input type="date" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         
-        <button onclick="confirmarAccion('Tarea')" class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #28a745; border: none;">Asignar Tarea a la Clase</button>
+        <label>Puntaje (0-100):</label>
+        <input type="number" placeholder="100" style="width: 100%; margin: 8px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+
+        <button class="boton-ingresar" style="width: 100%; margin-top: 15px; background-color: #28a745; border: none;">Asignar Tarea</button>
       </div>
 
     </div>
 
+    <section class="acceso-unidad" style="margin-top: 25px; border-top: 5px solid #ffcc00;">
+      <h3>📋 Tareas por Calificar</h3>
+      <p>Alumnos que han enviado sus trabajos recientemente:</p>
+      <table style="width: 100%; margin-top: 15px;">
+        <thead>
+          <tr style="background: #003366; color: white;">
+            <th style="padding: 10px;">Alumno</th>
+            <th>Materia</th>
+            <th>Archivo</th>
+            <th>Calificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">Juan Pérez</td>
+            <td style="border-bottom: 1px solid #eee;">Software</td>
+            <td style="border-bottom: 1px solid #eee;"><a href="#">ver_archivo.pdf</a></td>
+            <td style="border-bottom: 1px solid #eee;"><input type="number" style="width: 50px;"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
     <div style="text-align: center; margin-top: 30px;">
-      <a href="login.html" style="text-decoration: none; color: #666; font-weight: bold;">← Cerrar Sesión</a>
+      <a href="login.html" style="color: #666; font-weight: bold; text-decoration: none;">← Salir del Portal</a>
     </div>
   </main>
-
-  <script>
-    function confirmarAccion(tipo) {
-      const carrera = document.getElementById('carrera').value;
-      const semestre = document.getElementById('semestre').value;
-      
-      alert("✅ ¡Éxito! El " + tipo + " ha sido publicado correctamente en " + carrera + " para el " + semestre + ".");
-    }
-  </script>
 
 </body>
 </html>
