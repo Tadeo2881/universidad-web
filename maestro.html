@@ -10,27 +10,27 @@
   <header>
     <div class="logo-container">
       <h1>Panel de Control Docente</h1>
-      <p style="color: #ffcc00; font-weight: bold;">🔓 MODO EDICIÓN: ACTIVADO</p>
+      <p style="color: #ffcc00; font-weight: bold;">🔓 MODO DE EDICIÓN ACTIVO</p>
     </div>
   </header>
 
   <main>
     <section class="acceso-unidad">
       <h3>📤 Subir y Actualizar Material</h3>
-      <p>Selecciona el archivo para la unidad actual:</p>
+      <p>Selecciona archivos para que los alumnos los vean en su portal.</p>
       <input type="file" style="margin: 15px 0; padding: 10px; border: 1px dashed #003366; width: 100%;">
-      <button class="boton-ingresar" style="background-color: #003366;">Publicar Material</button>
+      <button class="boton-ingresar" style="background-color: #003366;">Actualizar Portal</button>
     </section>
 
-    <h3 style="margin-top: 30px;">Control de Alumnos y Calificaciones</h3>
-    <p><i>Toca cualquier celda para editar el nombre o la nota.</i></p>
+    <h3 style="margin-top: 30px;">Control Académico de Alumnos</h3>
+    <p><i>Instrucción: Haz clic en cualquier celda para modificar datos.</i></p>
     
     <table id="tablaMaestro">
       <thead>
         <tr>
           <th>Nombre del Alumno</th>
           <th>Materia</th>
-          <th>Estatus Tarea</th>
+          <th>Estatus</th>
           <th>Calificación</th>
         </tr>
       </thead>
@@ -38,31 +38,31 @@
         <tr contenteditable="true">
           <td>Juan Pérez</td>
           <td>Software</td>
-          <td>Entregado</td>
+          <td>Aprobado</td>
           <td>10</td>
         </tr>
       </tbody>
     </table>
     
-    <button onclick="nuevaFila()" style="margin-top: 15px; padding: 12px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">➕ Agregar Nuevo Alumno</button>
+    <button onclick="add()" style="margin-top: 15px; padding: 12px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">➕ Agregar Fila de Alumno</button>
 
     <div style="margin-top: 40px; border: 2px solid #ddd; padding: 20px; border-radius: 8px;" contenteditable="true">
-      <h4>📢 Avisos a la Clase:</h4>
-      <p>Haz clic aquí para escribir un mensaje global para tus alumnos...</p>
+      <h4>📢 Espacio para Avisos:</h4>
+      <p>Toca aquí para escribir anuncios importantes que verán tus alumnos...</p>
     </div>
 
     <br><br>
-    <a href="login.html" style="color: #cc0000; font-weight: bold; text-decoration: none;">← Cerrar Sesión Docente</a>
+    <a href="login.html" style="color: red; font-weight: bold; text-decoration: none;">← Salir del Modo Edición</a>
   </main>
 
   <script>
-    function nuevaFila() {
-      const table = document.getElementById("tablaMaestro").getElementsByTagName('tbody')[0];
-      const row = table.insertRow();
+    function add() {
+      var table = document.getElementById("tablaMaestro").getElementsByTagName('tbody')[0];
+      var row = table.insertRow();
       row.setAttribute("contenteditable", "true");
-      for (let i = 0; i < 4; i++) {
-        let cell = row.insertCell(i);
-        cell.innerHTML = "Haz clic para editar";
+      for (var i = 0; i < 4; i++) {
+        var cell = row.insertCell(i);
+        cell.innerHTML = "Editar...";
       }
     }
   </script>

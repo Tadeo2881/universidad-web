@@ -17,25 +17,25 @@
   <main style="display: flex; gap: 20px; flex-wrap: wrap;">
     <section class="acceso-unidad" style="flex: 1; min-width: 280px; border-top: 5px solid #003366;">
       <h2>👨‍🏫 Acceso Maestro</h2>
-      <p>Introduce tu clave de docente para modificar contenidos.</p>
-      <input type="password" id="claveMaestro" placeholder="Clave de acceso" style="width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #003366; border-radius: 5px;">
-      <button onclick="verificarAcceso()" class="boton" style="background-color: #003366; width: 100%; border: none; cursor: pointer;">Entrar al Panel</button>
+      <p>Introduce la clave autorizada para gestionar el aula.</p>
+      <input type="password" id="passMaestro" placeholder="Clave de 6 dígitos" style="width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #003366; border-radius: 5px;">
+      <button onclick="validar()" class="boton" style="background-color: #003366; width: 100%; border: none; cursor: pointer;">Entrar al Panel</button>
     </section>
 
     <section class="acceso-unidad" style="flex: 1; min-width: 280px; border-top: 5px solid #4a90e2;">
-      <h2>👨‍制造 Alumno</h2>
-      <p>Consulta tus tareas y descarga material.</p>
+      <h2>👨‍🎓 Acceso Alumno</h2>
+      <p>Consulta tus notas y descarga materiales de estudio.</p>
       <a href="alumno.html" class="boton" style="width: 100%; display: block; margin-top: 20px;">Entrar como Alumno</a>
     </section>
   </main>
 
   <script>
-    function verificarAcceso() {
-      const pin = document.getElementById('claveMaestro').value;
-      if (pin === "810217") {
+    function validar() {
+      var clave = document.getElementById('passMaestro').value;
+      if (clave === "810217") {
         window.location.href = "maestro.html";
       } else {
-        alert("❌ Clave incorrecta. Acceso denegado.");
+        alert("❌ Clave incorrecta. Solo el personal docente tiene acceso.");
       }
     }
   </script>
