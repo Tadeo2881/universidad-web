@@ -45,18 +45,23 @@
             <option value="energias">Ingeniería en Energías Renovables</option>
           </select>
         </div>
+
         <div style="flex: 1; min-width: 150px;">
           <label><strong>2. Semestre:</strong></label><br>
           <select id="semestreSelect" onchange="actualizarMaterias()" style="padding: 12px; border-radius: 5px; width: 100%; margin-top: 8px; border: 1px solid #ccc;">
-            <option value="1">1er Semestre</option><option value="2">2do Semestre</option>
-            <option value="3">3er Semestre</option><option value="4">4to Semestre</option>
-            <option value="5">5to Semestre</option><option value="6">6to Semestre</option>
+            <option value="1">1er Semestre</option>
+            <option value="2">2do Semestre</option>
+            <option value="3">3er Semestre</option>
+            <option value="4">4to Semestre</option>
+            <option value="5">5to Semestre</option>
+            <option value="6">6to Semestre</option>
           </select>
         </div>
+
         <div style="flex: 1; min-width: 250px;">
           <label><strong>3. Materia Específica:</strong></label><br>
           <select id="materiaSelect" style="padding: 12px; border-radius: 5px; width: 100%; margin-top: 8px; border: 2px solid #003366; background: #eef;">
-            </select>
+          </select>
         </div>
       </div>
     </section>
@@ -70,35 +75,50 @@
       </div>
     </section>
 
+    <section class="acceso-unidad" style="margin-bottom: 25px; border: 2px solid #003366; padding: 20px; border-radius: 12px; background: #f8fbff;">
+      <h4 style="color: #003366; margin-bottom: 15px;">📋 Alumnos registrados</h4>
+      <table style="width: 100%; border-collapse: collapse; background: white;">
+        <thead>
+          <tr style="background: #003366; color: white; text-align: left;">
+            <th style="padding: 12px; border: 1px solid #ddd;">Nombre</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Materia</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Semestre</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Carrera</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAlumnos"></tbody>
+      </table>
+    </section>
+
     <div style="display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 320px; border: 2px solid #003366; padding: 25px; border-radius: 12px; background: white;">
         <h4 style="color: #003366;">📚 Subir Material / Temas</h4>
         <p style="font-size: 0.8em; color: #666; margin-bottom: 10px;">Formatos: PDF, PowerPoint, Excel.</p>
         <hr style="opacity: 0.2; margin-bottom: 15px;">
-        
+
         <label>Título del tema:</label>
         <input type="text" id="titMaterial" placeholder="Ej: Introducción a la Carrera" style="width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 5px;">
-        
+
         <label>Adjuntar archivo:</label>
         <input type="file" id="fileIn" accept=".pdf, .ppt, .pptx, .xls, .xlsx" onchange="previsualizar()" style="margin: 10px 0; width: 100%;">
 
         <div id="previewBox" style="display: none; padding: 10px; background: #eef; border-radius: 5px; font-size: 0.85em; margin-bottom: 15px; border-left: 4px solid #003366;">
           <span id="previewText"></span>
         </div>
-        
+
         <button onclick="publicar()" class="boton" style="width: 100%; background-color: #003366; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Publicar en Materia</button>
       </div>
 
       <div style="flex: 1; min-width: 320px; border: 2px solid #28a745; padding: 25px; border-radius: 12px; background: white;">
         <h4 style="color: #28a745;">📝 Asignar Nueva Tarea</h4>
         <hr style="opacity: 0.2; margin-bottom: 15px;">
-        
+
         <label>Nombre de la tarea:</label>
         <input type="text" placeholder="Ej: Práctica Semanal" style="width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 5px;">
-        
+
         <label>Fecha límite:</label>
         <input type="date" style="width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 5px;">
-        
+
         <button class="boton" style="width: 100%; background-color: #28a745; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Asignar Tarea</button>
       </div>
     </div>
@@ -131,71 +151,158 @@
   </main>
 
   <script>
-    // Base de datos de materias dinámica
     const materias = {
       software: {
-        1: ["Lógica y Algoritmos", "Matemáticas I"], 2: ["POO", "Web I"],
-        3: ["Bases de Datos", "Redes"], 4: ["Fullstack", "Móviles"],
-        5: ["IA", "Ing. Software"], 6: ["Proyecto Integrador", "Ética"]
+        1: ["Lógica y Algoritmos", "Matemáticas I"],
+        2: ["POO", "Web I"],
+        3: ["Bases de Datos", "Redes"],
+        4: ["Fullstack", "Móviles"],
+        5: ["IA", "Ing. Software"],
+        6: ["Proyecto Integrador", "Ética"]
       },
       ciber: {
-        1: ["Seguridad Informática I", "Redes"], 3: ["Criptografía", "Sistemas Seguros"],
-        4: ["Hacking Ético", "Auditoría"], 6: ["Forense", "Riesgos"]
+        1: ["Seguridad Informática I", "Redes"],
+        3: ["Criptografía", "Sistemas Seguros"],
+        4: ["Hacking Ético", "Auditoría"],
+        6: ["Forense", "Riesgos"]
       },
       energias: {
-        1: ["Termodinámica", "Física"], 2: ["Eólica", "Sistemas Solares"],
-        4: ["Eficiencia Energética", "Plantas"], 6: ["Proyectos", "Impacto Ambiental"]
+        1: ["Termodinámica", "Física"],
+        2: ["Eólica", "Sistemas Solares"],
+        4: ["Eficiencia Energética", "Plantas"],
+        6: ["Proyectos", "Impacto Ambiental"]
       }
     };
 
-    let c1=0, c2=0, c3=0;
+    let c1 = 0, c2 = 0, c3 = 0;
 
     function actualizarMaterias() {
       const carrera = document.getElementById('carreraSelect').value;
       const semestre = document.getElementById('semestreSelect').value;
       const mSelect = document.getElementById('materiaSelect');
       mSelect.innerHTML = "";
+
       const lista = materias[carrera][semestre] || ["Materia General"];
+
       lista.forEach(m => {
-        let opt = document.createElement("option"); opt.text = m; mSelect.add(opt);
+        let opt = document.createElement("option");
+        opt.text = m;
+        opt.value = m;
+        mSelect.add(opt);
       });
     }
 
     function previsualizar() {
       const f = document.getElementById('fileIn').files[0];
       const box = document.getElementById('previewBox');
-      if (f) { 
-        box.style.display = 'block'; 
-        document.getElementById('previewText').innerText = "📄 Archivo seleccionado: " + f.name; 
-      }
-    }
 
-    function registrarAlumno() {
-      const n = document.getElementById('nomAlumno').value;
-      const c = document.getElementById('codAlumno').value;
-      if(n === "" || c.length !== 6) {
-        alert("⚠️ Error: Ingresa el nombre y un PIN de 6 dígitos."); return;
+      if (f) {
+        box.style.display = 'block';
+        document.getElementById('previewText').innerText = "📄 Archivo seleccionado: " + f.name;
       }
-      alert(`✅ Alumno ${n} dado de alta con PIN: ${c}`);
-      document.getElementById('nomAlumno').value = ""; document.getElementById('codAlumno').value = "";
     }
 
     function publicar() {
       const s = document.getElementById('semestreSelect').value;
       const t = document.getElementById('titMaterial').value;
       const m = document.getElementById('materiaSelect').value;
-      if(!t) { alert("Escribe un título"); return; }
 
-      if(s=="1"||s=="2") { c1++; document.getElementById('cont-1-2').innerText=c1; }
-      else if(s=="3"||s=="4") { c2++; document.getElementById('cont-3-4').innerText=c2; }
-      else { c3++; document.getElementById('cont-5-6').innerText=c3; }
+      if (!t) {
+        alert("Escribe un título");
+        return;
+      }
+
+      if (s == "1" || s == "2") {
+        c1++;
+        document.getElementById('cont-1-2').innerText = c1;
+      } else if (s == "3" || s == "4") {
+        c2++;
+        document.getElementById('cont-3-4').innerText = c2;
+      } else {
+        c3++;
+        document.getElementById('cont-5-6').innerText = c3;
+      }
 
       alert(`🚀 ¡Publicado!\nContenido: ${t}\nMateria: ${m}`);
-      document.getElementById('titMaterial').value = ""; document.getElementById('fileIn').value = "";
+      document.getElementById('titMaterial').value = "";
+      document.getElementById('fileIn').value = "";
       document.getElementById('previewBox').style.display = 'none';
     }
 
     window.onload = actualizarMaterias;
   </script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      onSnapshot
+    } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAUXPSL30Pe8i0wksx6WYdSuaAk9HmP3bU",
+      authDomain: "utera-527bb.firebaseapp.com",
+      projectId: "utera-527bb",
+      storageBucket: "utera-527bb.firebasestorage.app",
+      messagingSenderId: "1028162754492",
+      appId: "1:1028162754492:web:cfeda110c052c43ea0fdb9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.registrarAlumno = async function () {
+      const nombre = document.getElementById("nomAlumno").value.trim();
+      const pin = document.getElementById("codAlumno").value.trim();
+      const carrera = document.getElementById("carreraSelect").value;
+      const semestre = document.getElementById("semestreSelect").value;
+      const materia = document.getElementById("materiaSelect").value;
+
+      if (!nombre || pin.length !== 6) {
+        alert("⚠️ Ingresa el nombre y un PIN de 6 dígitos.");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "alumnos"), {
+          nombre,
+          pin,
+          carrera,
+          semestre,
+          materia
+        });
+
+        alert("✅ Alumno registrado en Firebase");
+        document.getElementById("nomAlumno").value = "";
+        document.getElementById("codAlumno").value = "";
+      } catch (error) {
+        console.error("Error al registrar alumno:", error);
+        alert("❌ Error al guardar en Firebase");
+      }
+    };
+
+    onSnapshot(collection(db, "alumnos"), (snapshot) => {
+      const tabla = document.getElementById("tablaAlumnos");
+      if (!tabla) return;
+
+      tabla.innerHTML = "";
+
+      snapshot.forEach((doc) => {
+        const a = doc.data();
+
+        tabla.innerHTML += `
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">${a.nombre || ""}</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">${a.materia || ""}</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">${a.semestre || ""}</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">${a.carrera || ""}</td>
+          </tr>
+        `;
+      });
+    });
+  </script>
+
 </body>
 </html>
